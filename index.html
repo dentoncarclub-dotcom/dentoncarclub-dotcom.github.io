@@ -6,168 +6,35 @@
   <title>Denton Car Club</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900,400&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --primary: #c0392b;   /* red/orange */
-      --secondary: #232323; /* near black */
-      --accent: #ffcc00;    /* yellow accent */
-      --light: #f7f7f7;
-    }
+    :root{ --primary:#c0392b; --secondary:#232323; --accent:#ffcc00; --light:#f7f7f7; }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:"Montserrat",Arial,sans-serif;
-      background:var(--light);
-      color:var(--secondary);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    header{
-      background:var(--secondary);
-      color:#fff;
-      text-align:center;
-      padding:2rem 1rem 1.75rem;
-      border-bottom:6px solid var(--primary);
-      position:relative;
-    }
-    .hero-img{
-      width:360px;
-      max-width:92%;
-      display:block;
-      margin:0 auto 0.8rem;
-      border-radius:10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-    }
-    .main-title{
-      font-weight:900;
-      letter-spacing:3px;
-      font-size:2.6rem;
-      margin:0.35rem 0 0;
-      text-shadow: 2px 6px 18px rgba(0,0,0,0.6);
-    }
-    .tagline{
-      color:var(--accent);
-      font-weight:700;
-      margin-top:.5rem;
-      letter-spacing:1.5px;
-      text-shadow:1px 3px 10px rgba(0,0,0,0.45);
-      font-size:1.05rem;
-    }
-
+    body{ margin:0; font-family:"Montserrat",Arial,sans-serif; background:var(--light); color:var(--secondary); }
+    header{ background:var(--secondary); color:#fff; text-align:center; padding:2rem 1rem 1.75rem; border-bottom:6px solid var(--primary); }
+    .hero-img{ width:360px; max-width:92%; display:block; margin:0 auto 0.8rem; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.45); }
+    .main-title{ font-weight:900; letter-spacing:3px; font-size:2.6rem; margin:0.35rem 0 0; text-shadow: 2px 6px 18px rgba(0,0,0,0.6); }
+    .tagline{ color:var(--accent); font-weight:700; margin-top:.5rem; letter-spacing:1.5px; font-size:1.05rem; }
     .container{ max-width:980px; margin:2rem auto; padding:0 1rem; }
-
-    .card{
-      background:#fff;
-      border-radius:12px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.06);
-      padding:2rem;
-      margin-bottom:1.6rem;
-    }
-
-    /* smoky section backgrounds */
-    .smoke-section{
-      border-radius:12px;
-      padding:2rem;
-      background-color: rgba(255,255,255,0.9);
-      background-blend-mode: overlay;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      position:relative;
-      overflow:hidden;
-    }
-    /* background image is applied here */
-    .smoke-section::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image: url('https://raw.githubusercontent.com/dentoncarclub-dotcom/dentoncarclub.github.io/main/images/smoke-bg.jpg');
-      background-size:cover;
-      background-position:center;
-      opacity:0.65;
-      z-index:0;
-      filter: grayscale(20%) contrast(95%) brightness(92%);
-    }
+    .card{ background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.06); padding:2rem; margin-bottom:1.6rem; }
+    .smoke-section{ border-radius:12px; padding:2rem; background-color: rgba(255,255,255,0.9); position:relative; overflow:hidden; }
+    .smoke-section::before{ content:""; position:absolute; inset:0;
+      background-image: url('images/Add%20a%20heading%20(1).png');
+      background-size:cover; background-position:center; opacity:0.65; z-index:0; filter: grayscale(20%) contrast(95%) brightness(92%); }
     .smoke-content{ position:relative; z-index:1; color:var(--secondary); }
-
-    .title-accent{
-      display:block;
-      text-align:center;
-      color:var(--accent);
-      font-weight:900;
-      font-size:2.1rem;
-      letter-spacing:0.3rem;
-      margin-bottom:1rem;
-    }
-
-    .caution{
-      text-align:center;
-      color:var(--accent);
-      font-weight:900;
-      margin-bottom:.6rem;
-      font-size:1.25rem;
-    }
-
-    .rules-list, .disclaimer-list{
-      margin:0;
-      padding-left:1.1rem;
-      font-size:1.05rem;
-      line-height:1.45;
-    }
-    .rules-list li, .disclaimer-list li{
-      margin-bottom:0.95rem;
-    }
+    .title-accent{ display:block; text-align:center; color:var(--accent); font-weight:900; font-size:2.1rem; letter-spacing:0.3rem; margin-bottom:1rem; }
+    .caution{ text-align:center; color:var(--accent); font-weight:900; margin-bottom:.6rem; font-size:1.25rem; }
+    .rules-list, .disclaimer-list{ margin:0; padding-left:1.1rem; font-size:1.05rem; line-height:1.45; }
+    .rules-list li, .disclaimer-list li{ margin-bottom:0.95rem; }
     .rules-list b, .disclaimer-list b { font-weight:800; }
-
-    .small-logo{
-      display:block;
-      margin:1.8rem auto 0 auto;
-      width:110px;
-      height:auto;
-      border-radius:6px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.14);
-      background:#fff;
-      padding:6px;
-      opacity:0.95;
-    }
-
-    .relax {
-      text-align:center;
-      color:var(--accent);
-      font-weight:800;
-      margin-top:1.6rem;
-      letter-spacing:1.5px;
-    }
-
-    footer{
-      text-align:center;
-      color:#777;
-      padding:2rem 0 3rem;
-      font-size:0.98rem;
-    }
-
-    @media (max-width:700px){
-      .main-title{ font-size:1.8rem; }
-      .title-accent{ font-size:1.25rem; letter-spacing:.15rem; }
-      .caution{ font-size:1rem; }
-      .hero-img{ width:86%; }
-      .card{ padding:1.1rem; }
-    }
+    .small-logo{ display:block; margin:1.8rem auto 0 auto; width:110px; border-radius:6px; background:#fff; padding:6px; opacity:0.95; box-shadow:0 6px 18px rgba(0,0,0,0.14); }
+    .relax { text-align:center; color:var(--accent); font-weight:800; margin-top:1.6rem; letter-spacing:1.5px; }
+    footer{ text-align:center; color:#777; padding:2rem 0 3rem; font-size:0.98rem; }
+    @media (max-width:700px){ .main-title{ font-size:1.8rem; } .hero-img{ width:86%; } .card{ padding:1.1rem; } }
   </style>
 </head>
 <body>
   <header>
-    <!--
-      Replace the URLs below with your actual hosted image URLs if they differ.
-      Current image links point to raw GitHub paths under:
-      /images/dcc-hero.jpg
-      /images/dcc-bw-logo.jpg
-      /images/smoke-bg.jpg
-
-      Upload the images to your repo at:
-      https://github.com/dentoncarclub-dotcom/dentoncarclub.github.io/tree/main/images
-    -->
-    <img src="https://raw.githubusercontent.com/dentoncarclub-dotcom/dentoncarclub.github.io/main/images/dcc-hero.jpg"
-         alt="Denton Car Club hero" class="hero-img" />
-
+    <!-- hero image using your filename IMG_3943.jpg (must be uploaded to images/ in repo) -->
+    <img src="images/IMG_3943.jpg" alt="Denton Car Club hero" class="hero-img" />
     <div class="main-title">DENTON CAR CLUB</div>
     <div class="tagline">DCC — United by Passion, Driven by Community</div>
   </header>
@@ -190,8 +57,8 @@
         </ul>
 
         <div class="relax">RELAX, ENJOY THE SHOW.</div>
-        <img src="https://raw.githubusercontent.com/dentoncarclub-dotcom/dentoncarclub.github.io/main/images/dcc-bw-logo.jpg"
-             alt="DCC small logo" class="small-logo" />
+        <!-- small logo uses your liability disclaimer image (jpg) -->
+        <img src="images/liability disclaimer.jpg" alt="DCC small logo" class="small-logo" />
       </div>
     </section>
 
@@ -209,8 +76,7 @@
         </ul>
 
         <div class="relax" style="color:var(--secondary); margin-top:1.8rem;">STAY SAFE, READ THE MEET RULES.</div>
-        <img src="https://raw.githubusercontent.com/dentoncarclub-dotcom/dentoncarclub.github.io/main/images/dcc-bw-logo.jpg"
-             alt="DCC small logo" class="small-logo" />
+        <img src="images/IMG_3943.jpg" alt="DCC small logo" class="small-logo" />
       </div>
     </section>
   </main>
