@@ -1,223 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Denton Car Club</title>
-  <!-- Montserrat font for bold, modern look -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900,400&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #c0392b;
-      --secondary: #232323;
-      --accent: #ffcc00;
+    :root{
+      --primary: #c0392b;   /* red/orange */
+      --secondary: #232323; /* near black */
+      --accent: #ffcc00;    /* yellow accent */
       --light: #f7f7f7;
-      --smoke: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80');
-      /* Use a subtle gray/smoke background image, replace if needed */
     }
-    body {
-      margin: 0;
-      background: var(--light);
-      color: var(--secondary);
-      font-family: 'Montserrat', Arial, sans-serif;
-    }
-    header {
-      background: var(--secondary);
-      color: #fff;
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 6px solid var(--primary);
-      position: relative;
-    }
-    .hero-img {
-      width: 350px;
-      max-width: 95vw;
-      margin: 0 auto 1rem auto;
-      display: block;
-    }
-    .main-title {
-      font-size: 2.5rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 900;
-      letter-spacing: 3px;
-      margin: 0.5rem 0 0 0;
-      text-shadow: 2px 4px 12px #0009;
-    }
-    .tagline {
-      font-size: 1.15rem;
-      font-weight: 500;
-      margin-top: 0.5rem;
-      color: var(--accent);
-      text-shadow: 1px 2px 8px #000a;
-      letter-spacing: 2px;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Montserrat",Arial,sans-serif;
+      background:var(--light);
+      color:var(--secondary);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    .section {
-      max-width: 900px;
-      margin: 2.5rem auto 0 auto;
-      padding: 2.5rem 2rem 2rem 2rem;
-      background: #fff;
-      border-radius: 1rem;
-      box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
-      position: relative;
-      z-index: 1;
+    header{
+      background:var(--secondary);
+      color:#fff;
+      text-align:center;
+      padding:2rem 1rem 1.75rem;
+      border-bottom:6px solid var(--primary);
+      position:relative;
     }
-    .rules-bg, .disclaimer-bg {
-      background: rgba(247,247,247,0.97) center center/cover no-repeat;
-      background-image: var(--smoke);
-      border-radius: 1rem;
-      margin-bottom: 2.5rem;
-      padding: 2.5rem 2rem 2rem 2rem;
-      box-shadow: 0 2px 20px 0 rgba(0,0,0,0.07);
-      color: #232323;
-      position: relative;
-      overflow: hidden;
+    .hero-img{
+      width:360px;
+      max-width:92%;
+      display:block;
+      margin:0 auto 0.8rem;
+      border-radius:10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
     }
-    .rules-bg::before, .disclaimer-bg::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,0.7);
-      z-index: 0;
+    .main-title{
+      font-weight:900;
+      letter-spacing:3px;
+      font-size:2.6rem;
+      margin:0.35rem 0 0;
+      text-shadow: 2px 6px 18px rgba(0,0,0,0.6);
     }
-    .rules-content, .disclaimer-content {
-      position: relative;
-      z-index: 1;
-    }
-    .rules-title {
-      color: var(--accent);
-      font-size: 2.2rem;
-      font-weight: 900;
-      letter-spacing: 0.25rem;
-      text-align: center;
-      margin-top: 0.3rem;
-      margin-bottom: 2.3rem;
-    }
-    .caution {
-      text-align: center;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .rules-bg ul {
-      font-size: 1.1rem;
-      margin: 0;
-      padding-left: 1.3em;
-    }
-    .rules-bg li {
-      margin-bottom: 1.1em;
-      line-height: 1.4;
-    }
-    .rules-bg strong, .rules-bg b {
-      font-weight: 700;
-      text-decoration: underline;
-    }
-    .rules-bg a {
-      color: var(--primary);
-      text-decoration: underline;
-    }
-    .rules-bg .relax {
-      text-align: center;
-      margin-top: 2.5rem;
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: var(--accent);
-      letter-spacing: 2px;
-    }
-    .rules-logo, .disclaimer-logo {
-      display: block;
-      margin: 2.3rem auto 0 auto;
-      width: 110px;
-      opacity: 0.9;
-      border-radius: 0.3rem;
-    }
-    .disclaimer-title {
-      font-size: 2.2rem;
-      font-weight: 900;
-      text-align: center;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.18rem;
-      color: var(--secondary);
-      text-shadow: 1px 2px 10px #fff9;
-    }
-    .disclaimer-bg ul {
-      font-size: 1.06rem;
-      padding-left: 1.3em;
-    }
-    .disclaimer-bg li {
-      margin-bottom: 1.1em;
-      line-height: 1.4;
-    }
-    .disclaimer-bg strong, .disclaimer-bg b {
-      font-weight: 700;
-    }
-    .disclaimer-bg .stay-safe {
-      text-align: center;
-      margin: 2.5rem 0 0 0;
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--secondary);
-      letter-spacing: 2px;
-      text-shadow: 2px 4px 10px #fff8;
+    .tagline{
+      color:var(--accent);
+      font-weight:700;
+      margin-top:.5rem;
+      letter-spacing:1.5px;
+      text-shadow:1px 3px 10px rgba(0,0,0,0.45);
+      font-size:1.05rem;
     }
 
-    /* Responsive tweaks */
-    @media (max-width: 700px) {
-      .main-title { font-size: 2.1rem; }
-      .section, .rules-bg, .disclaimer-bg { padding: 1.2rem 0.5rem 1rem 0.5rem; }
-      .rules-title, .disclaimer-title { font-size: 1.35rem; }
+    .container{ max-width:980px; margin:2rem auto; padding:0 1rem; }
+
+    .card{
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.06);
+      padding:2rem;
+      margin-bottom:1.6rem;
+    }
+
+    /* smoky section backgrounds */
+    .smoke-section{
+      border-radius:12px;
+      padding:2rem;
+      background-color: rgba(255,255,255,0.9);
+      background-blend-mode: overlay;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      position:relative;
+      overflow:hidden;
+    }
+    /* background image is applied here */
+    .smoke-section::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: url('https://raw.githubusercontent.com/dentoncarclub-dotcom/dentoncarclub.github.io/main/images/smoke-bg.jpg');
+      background-size:cover;
+      background-position:center;
+      opacity:0.65;
+      z-index:0;
+      filter: grayscale(20%) contrast(95%) brightness(92%);
+    }
+    .smoke-content{ position:relative; z-index:1; color:var(--secondary); }
+
+    .title-accent{
+      display:block;
+      text-align:center;
+      color:var(--accent);
+      font-weight:900;
+      font-size:2.1rem;
+      letter-spacing:0.3rem;
+      margin-bottom:1rem;
+    }
+
+    .caution{
+      text-align:center;
+      color:var(--accent);
+      font-weight:900;
+      margin-bottom:.6rem;
+      font-size:1.25rem;
+    }
+
+    .rules-list, .disclaimer-list{
+      margin:0;
+      padding-left:1.1rem;
+      font-size:1.05rem;
+      line-height:1.45;
+    }
+    .rules-list li, .disclaimer-list li{
+      margin-bottom:0.95rem;
+    }
+    .rules-list b, .disclaimer-list b { font-weight:800; }
+
+    .small-logo{
+      display:block;
+      margin:1.8rem auto 0 auto;
+      width:110px;
+      height:auto;
+      border-radius:6px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+      background:#fff;
+      padding:6px;
+      opacity:0.95;
+    }
+
+    .relax {
+      text-align:center;
+      color:var(--accent);
+      font-weight:800;
+      margin-top:1.6rem;
+      letter-spacing:1.5px;
+    }
+
+    footer{
+      text-align:center;
+      color:#777;
+      padding:2rem 0 3rem;
+      font-size:0.98rem;
+    }
+
+    @media (max-width:700px){
+      .main-title{ font-size:1.8rem; }
+      .title-accent{ font-size:1.25rem; letter-spacing:.15rem; }
+      .caution{ font-size:1rem; }
+      .hero-img{ width:86%; }
+      .card{ padding:1.1rem; }
     }
   </style>
 </head>
 <body>
   <header>
-    <!-- Hero / logo -->
-    <img src="https://cdn.jsdelivr.net/gh/dentoncarclub-dotcom/assets/dcc-hero.jpg" alt="Denton Car Club Logo" class="hero-img" />
-    <!-- Use your own image hosting above or replace with your actual image URL -->
+    <!--
+      Replace the URLs below with your actual hosted image URLs if they differ.
+      Current image links point to raw GitHub paths under:
+      /images/dcc-hero.jpg
+      /images/dcc-bw-logo.jpg
+      /images/smoke-bg.jpg
+
+      Upload the images to your repo at:
+      https://github.com/dentoncarclub-dotcom/dentoncarclub.github.io/tree/main/images
+    -->
+    <img src="https://raw.githubusercontent.com/dentoncarclub-dotcom/dentoncarclub.github.io/main/images/dcc-hero.jpg"
+         alt="Denton Car Club hero" class="hero-img" />
+
     <div class="main-title">DENTON CAR CLUB</div>
-    <div class="tagline">DCC – United by Passion, Driven by Community</div>
+    <div class="tagline">DCC — United by Passion, Driven by Community</div>
   </header>
 
-  <div class="section rules-bg">
-    <div class="rules-content">
-      <div class="caution">
-        <span style="font-size:2.2rem;vertical-align:middle;">&#9888;</span> CAUTION
+  <main class="container">
+    <section class="card smoke-section">
+      <div class="smoke-content">
+        <div class="caution">&#9888; CAUTION</div>
+        <div class="title-accent">RULES</div>
+
+        <ul class="rules-list">
+          <li><b>No Reckless Driving:</b> No burnouts, donuts, racing, excessive revving, or dangerous maneuvers of any kind on or near the premises. <b>Violators will be asked to leave immediately and may be reported to law enforcement.</b></li>
+          <li><b>Respect the Venue:</b> No littering, vandalism, or property damage. All trash must be disposed of in designated containers.</li>
+          <li><b>Noise Control:</b> Keep music and exhaust noise at a reasonable level to avoid disturbing local businesses and residents.</li>
+          <li><b>Park only in designated areas:</b> Do not block fire lanes, driveways, entrances, or emergency access routes.</li>
+          <li><b>Substances & Alcohol:</b> Absolutely no alcohol, drugs, or illegal substances on-site. Individuals under the influence will be removed immediately.</li>
+          <li><b>Behavior Expectations:</b> Treat all participants, spectators, and property with respect. No harassment, fighting, or disorderly conduct will be tolerated.</li>
+          <li><b>Spectator Safety:</b> Stay in designated spectator areas. Do not stand in active traffic lanes or near moving vehicles. <b>Leave weapons and valuables at home. DCC & its Venue(s) are not responsible for stolen, lost, or damaged property.</b></li>
+          <li><b>Compliance with Laws:</b> All local, state, and federal laws (traffic, noise, trespass, etc.) must be obeyed. Vehicles must be street legal if operated on public roads.</li>
+        </ul>
+
+        <div class="relax">RELAX, ENJOY THE SHOW.</div>
+        <img src="https://raw.githubusercontent.com/dentoncarclub-dotcom/dentoncarclub.github.io/main/images/dcc-bw-logo.jpg"
+             alt="DCC small logo" class="small-logo" />
       </div>
-      <div class="rules-title">RULES</div>
-      <ul>
-        <li><b>No Reckless Driving:</b> No burnouts, donuts, racing, excessive revving, or dangerous maneuvers of any kind on or near the premises. <b>Violators will be asked to leave immediately and may be reported to law enforcement.</b></li>
-        <li><b>Respect the Venue:</b> No littering, vandalism, or property damage. All trash must be disposed of in designated containers.</li>
-        <li><b>Noise Control:</b> Keep music and exhaust noise at a reasonable level to avoid disturbing local businesses and residents.</li>
-        <li><b>Park only in designated areas:</b> Do not block fire lanes, driveways, entrances, or emergency access routes.</li>
-        <li><b>Substances & Alcohol:</b> Absolutely no alcohol, drugs, or illegal substances on-site. Individuals under the influence will be removed immediately.</li>
-        <li><b>Behavior Expectations:</b> Treat all participants, spectators, and property with respect. No harassment, fighting, or disorderly conduct will be tolerated.</li>
-        <li><b>Spectator Safety:</b> Stay in designated spectator areas. Do not stand in active traffic lanes or near moving vehicles. <b>Leave Weapons and valuables at home. DCC & its Venue(s) are not responsible for stolen, lost, or damaged property.</b></li>
-        <li><b>Compliance with Laws:</b> All local, state, and federal laws (traffic, noise, trespass, etc.) must be obeyed. Vehicles must be street legal if operated on public roads.</li>
-      </ul>
-      <div class="relax">RELAX, ENJOY THE SHOW.</div>
-      <img src="https://cdn.jsdelivr.net/gh/dentoncarclub-dotcom/assets/dcc-bw-logo.jpg" alt="DCC Logo" class="rules-logo" />
-    </div>
-  </div>
+    </section>
 
-  <div class="section disclaimer-bg">
-    <div class="disclaimer-content">
-      <div class="disclaimer-title">LIABILITY DISCLAIMER</div>
-      <ul>
-        <li><b>Participation is Voluntary:</b> By attending this event, all participants and spectators acknowledge that they are doing so voluntarily and at their own risk.</li>
-        <li><b>Assumption of Risk:</b> Motor vehicle events inherently carry risks, including but not limited to injury, property damage, or death. By entering the event area, attendees assume all such risks.</li>
-        <li><b>Release of Liability:</b> Denton Car Club, its organizers, sponsors, and venue hosts are not responsible for any accidents, injuries, theft, property damage, or other losses that may occur before, during, or after the event.</li>
-        <li><b>Indemnification:</b> Attendees agree to indemnify and hold harmless Denton Car Club, its members, and affiliates from any claims, damages, or expenses (including attorney’s fees) arising from their conduct at the event.</li>
-        <li><b>No Insurance Provided:</b> This event does not provide insurance coverage for attendees, vehicles, or property. Participants are responsible for their own insurance.</li>
-        <li><b>Right to Refuse Entry:</b> Organizers reserve the right to deny entry or remove anyone for violation of rules, unsafe behavior, or conduct deemed inappropriate.</li>
-      </ul>
-      <div class="stay-safe">STAY SAFE, READ THE MEET RULES.</div>
-      <img src="https://cdn.jsdelivr.net/gh/dentoncarclub-dotcom/assets/dcc-bw-logo.jpg" alt="DCC Logo" class="disclaimer-logo" />
-    </div>
-  </div>
+    <section class="card smoke-section">
+      <div class="smoke-content">
+        <div class="title-accent" style="color:var(--secondary);">LIABILITY DISCLAIMER</div>
 
-  <!-- Footer -->
-  <footer style="text-align:center;color:#888;font-size:1rem;padding:2rem 0 1rem 0;">
+        <ul class="disclaimer-list">
+          <li><b>Participation is Voluntary:</b> By attending this event, participants and spectators acknowledge they attend at their own risk.</li>
+          <li><b>Assumption of Risk:</b> Motor vehicle events inherently carry risks, including injury, property damage, or death. By entering the event area, attendees assume these risks.</li>
+          <li><b>Release of Liability:</b> Denton Car Club, its organizers, sponsors, and venue hosts are not responsible for accidents, injuries, theft, property damage, or other losses before, during, or after the event.</li>
+          <li><b>Indemnification:</b> Attendees agree to indemnify and hold harmless Denton Car Club, its members, and affiliates from claims, damages, or expenses (including attorney’s fees) arising from their conduct at the event.</li>
+          <li><b>No Insurance Provided:</b> This event does not provide insurance coverage for attendees, vehicles, or property. Participants are responsible for their own insurance.</li>
+          <li><b>Right to Refuse Entry:</b> Organizers reserve the right to deny entry or remove anyone for rule violations, unsafe behavior, or inappropriate conduct.</li>
+        </ul>
+
+        <div class="relax" style="color:var(--secondary); margin-top:1.8rem;">STAY SAFE, READ THE MEET RULES.</div>
+        <img src="https://raw.githubusercontent.com/dentoncarclub-dotcom/dentoncarclub.github.io/main/images/dcc-bw-logo.jpg"
+             alt="DCC small logo" class="small-logo" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
     &copy; 2025 Denton Car Club — Denton, TX
   </footer>
 </body>
