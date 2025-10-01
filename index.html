@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Denton Car Club</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900,400&display=swap" rel="stylesheet">
+  <!-- Google icons for Gmail logo -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
     :root{
-      --primary: #c0392b;   /* red accent */
-      --secondary: #000000; /* pure black */
-      --accent: #c0392b;    /* same as primary now */
+      --primary: #c0392b;
+      --secondary: #000000;
+      --accent: #c0392b;
       --light: #000000;
     }
     *{box-sizing:border-box}
@@ -49,23 +51,48 @@
       letter-spacing:1.5px;
       font-size:1.05rem;
     }
-    .contact-wrap{ margin-top:0.9rem; }
-    .btn-contact{
-      display:inline-block;
+    .contact-wrap{
+      margin-top:1.2rem;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:1rem;
+    }
+    .club-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:0.5em;
       background:#fff;
       color:var(--primary);
-      padding:0.6rem 1rem;
+      padding:0.6rem 1.2rem;
       border-radius:8px;
       text-decoration:none;
       font-weight:800;
       letter-spacing:0.6px;
+      font-size:1rem;
       box-shadow:0 6px 18px rgba(0,0,0,0.14);
-      transition:background 0.2s, color 0.2s;
       border:2px solid var(--primary);
+      transition:background 0.2s, color 0.2s;
+      outline:none;
+      cursor:pointer;
+      min-width:120px;
+      justify-content:center;
     }
-    .btn-contact:hover{
+    .club-btn:hover, .club-btn:focus{
       background:var(--primary);
       color:#fff;
+    }
+    .club-btn .material-icons{
+      font-size:1.3em;
+      vertical-align:middle;
+      color:inherit;
+    }
+    .club-btn img{
+      width:1.3em;
+      height:1.3em;
+      vertical-align:middle;
+      margin-right:0.4em;
+      filter: grayscale(10%) contrast(100%);
     }
     .container{
       max-width:980px;
@@ -110,7 +137,8 @@
       .hero-img{ width:86%; }
       .card{ padding:1.1rem; }
       .rules-poster{ width:98%; }
-      .btn-contact{ padding:0.5rem 0.8rem; }
+      .club-btn{ font-size:0.96rem; padding:0.5rem 0.9rem; min-width:90px;}
+      .contact-wrap{ gap:0.6rem;}
     }
   </style>
 </head>
@@ -120,7 +148,30 @@
     <div class="main-title">DENTON CAR CLUB</div>
     <div class="tagline">DCC — United by Passion, Driven by Community</div>
     <div class="contact-wrap">
-      <a class="btn-contact" href="mailto:dentoncarclub@gmail.com" aria-label="Email Denton Car Club">Get in touch</a>
+      <!-- Gmail button -->
+      <a class="club-btn" href="mailto:dentoncarclub@gmail.com" aria-label="Email Denton Car Club">
+        <span class="material-icons" style="color:#c0392b;">mail</span>
+        Get in touch
+      </a>
+      <!-- ParkUpFront -->
+      <a class="club-btn" href="https://app.parkupfront.com/club/4676" target="_blank" rel="noopener" aria-label="ParkUpFront Club">
+        <img src="https://parkupfront.com/favicon.ico" alt="ParkUpFront logo" />
+        ParkUpFront
+      </a>
+      <!-- Instagram -->
+      <a class="club-btn" href="https://www.instagram.com/denton.carclub?igsh=MTcyb3l6dnVsYW1vdg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram logo" />
+        Instagram
+      </a>
+      <!-- Facebook -->
+      <a class="club-btn" href="https://www.facebook.com/share/171ygkxmui/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Facebook-icon-1.png" alt="Facebook logo" />
+        Facebook
+      </a>
+      <!-- RSVP button -->
+      <a class="club-btn" href="http://bit.ly/485oqSx" target="_blank" rel="noopener" aria-label="RSVP">
+        RSVP
+      </a>
     </div>
   </header>
 
