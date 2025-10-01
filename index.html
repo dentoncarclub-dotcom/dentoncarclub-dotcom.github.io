@@ -5,342 +5,391 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Denton Car Club</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900,400&display=swap" rel="stylesheet">
-  <!-- Google icons for Gmail logo -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
     :root{
       --primary: #c0392b;
-      --secondary: #000000;
+      --secondary: #232323;
       --accent: #c0392b;
-      --light: #000000;
+      --bg: #ededed;
       --btn-bg: #fff;
       --btn-color: #c0392b;
-      --btn-border: #fff;
+      --btn-border: #c0392b;
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box;}
     body{
       margin:0;
       font-family:"Montserrat",Arial,sans-serif;
-      background:var(--primary);
-      color:#fff;
+      background:var(--bg);
+      color:var(--secondary);
       min-height:100vh;
-      width:100vw;
-      overflow-x:hidden;
     }
-    header{
-      width:100vw;
-      min-height:320px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:var(--primary);
-      padding:2.5rem 2vw 2.5rem 2vw;
-      box-sizing:border-box;
-      position:relative;
+    .hero{
+      text-align:center;
+      padding:2.5rem 0 1.5rem 0;
+      background:var(--btn-bg);
+      box-shadow:0 3px 24px rgba(0,0,0,0.09);
     }
-    .header-content{
-      display:flex;
-      flex-direction:row;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      max-width:1350px;
-      gap:0;
-      position:relative;
+    .hero-logo{
+      width:160px;
+      max-width:96vw;
+      border-radius:22px;
+      box-shadow:0 8px 28px rgba(0,0,0,0.13);
+      margin-bottom:1.2rem;
     }
-    .left-block{
+    .main-title{
+      font-weight:900;
+      letter-spacing:4px;
+      font-size:2.5rem;
+      margin-bottom:0.3rem;
+      text-shadow: 2px 6px 18px rgba(0,0,0,0.07);
+      color:var(--primary);
+    }
+    .tagline{
+      color:var(--accent);
+      font-weight:700;
+      margin-bottom:0.8rem;
+      letter-spacing:1.5px;
+      font-size:1.05rem;
+    }
+
+    /* Main links section */
+    .linktree{
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:center;
-      min-width:260px;
-      max-width:340px;
-      flex: 0 0 320px;
-      margin-right:1vw;
+      gap:1.1rem;
+      margin:2.2rem auto 2.2rem auto;
+      width:100%;
+      max-width:460px;
     }
-    .logo-img{
-      display:block;
-      margin:0 auto 0.6rem auto;
-      width:110px;
-      height:110px;
-      object-fit:cover;
-      border-radius:14px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.28);
-    }
-    .main-title{
-      font-weight:900;
-      letter-spacing:3px;
-      font-size:2.1rem;
-      margin:0.7rem 0 0.3rem 0;
-      text-shadow: 2px 6px 18px rgba(0,0,0,0.5);
-      text-align:center;
-      line-height:1.12;
-    }
-    .directory-wrap{
-      display:grid;
-      grid-template-rows:repeat(5, 1fr);
-      grid-template-columns:repeat(2, 1fr);
-      gap:1.2rem 1.4rem;
-      justify-items:start;
+    .link-btn{
+      display:flex;
       align-items:center;
-      margin-left:3vw;
-      margin-right:3vw;
-      min-width:380px;
-      max-width:540px;
-    }
-    .club-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:0.5em;
+      gap:0.8em;
       background:var(--btn-bg);
       color:var(--btn-color);
-      padding:0.7rem 1.2rem;
-      border-radius:9px;
+      padding:1rem 1.3rem;
+      border-radius:12px;
       text-decoration:none;
       font-weight:800;
-      letter-spacing:0.7px;
-      font-size:1.09rem;
-      box-shadow:0 4px 12px rgba(0,0,0,0.10);
+      font-size:1.22rem;
+      box-shadow:0 3px 12px rgba(0,0,0,0.08);
       border:2px solid var(--btn-border);
       transition:background 0.18s, color 0.18s;
       outline:none;
       cursor:pointer;
-      min-width:140px;
+      width:100%;
       justify-content:center;
-      white-space:nowrap;
+      margin-bottom:0.1rem;
     }
-    .club-btn:hover, .club-btn:focus{
+    .link-btn:hover, .link-btn:focus{
       background:var(--btn-color);
-      color:var(--btn-bg);
+      color:#fff;
       border-color:var(--btn-bg);
     }
-    .club-btn .material-icons{
-      font-size:1.3em;
+    .link-btn img, .link-btn .material-icons{
+      width:1.4em;
+      height:1.4em;
       vertical-align:middle;
-      color:inherit;
-    }
-    .club-btn img{
-      width:1.3em;
-      height:1.3em;
-      vertical-align:middle;
-      margin-right:0.4em;
+      margin-right:0.3em;
       filter: grayscale(10%) contrast(110%);
     }
-    .rsvp-wrap{
+    .gallery-section{
       display:flex;
       flex-direction:column;
-      align-items:flex-end;
-      justify-content:center;
-      min-width:260px;
-      max-width:400px;
-      margin-left:auto;
-      margin-right:2vw;
-      text-align:right;
-    }
-    .rsvp-title{
-      color:#fff;
-      font-weight:900;
-      font-size:1.32rem;
-      margin-bottom:1.1rem;
-      letter-spacing:0.05em;
-      text-shadow: 2px 6px 18px rgba(0,0,0,0.18);
-    }
-    .rsvp-btn{
-      display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:1.4rem 3.5rem;
-      font-size:1.55rem;
-      font-weight:900;
-      background:transparent;
-      color:#fff;
-      border-radius:14px;
-      text-decoration:none;
-      border:3px solid #fff;
-      box-shadow:0 6px 18px rgba(0,0,0,0.14);
-      letter-spacing:2px;
-      transition:background 0.16s, color 0.16s, border-color 0.16s;
-      outline:none;
-      cursor:pointer;
-      margin-bottom:0.8rem;
-      margin-top:0.6rem;
-    }
-    .rsvp-btn:hover, .rsvp-btn:focus{
-      background:#fff;
-      color:var(--accent);
-      border-color:var(--accent);
-    }
-    main.container {
-      max-width:100vw;
-      padding:0;
-      margin:0;
-    }
-    /* Gallery styles */
-    .gallery {
       width:100vw;
+      min-height:70vh;
+      background:var(--bg);
+      padding:3rem 0 3rem 0;
+    }
+    .gallery-title{
+      font-size:2rem;
+      font-weight:900;
+      color:var(--primary);
+      margin-bottom:2.2rem;
+      text-align:center;
+      letter-spacing:2px;
+    }
+    .gallery-grid{
       display:flex;
       flex-wrap:wrap;
+      gap:1.4rem;
       justify-content:center;
       align-items:center;
-      gap:2rem;
-      padding:2rem 0 0 0;
+      width:100%;
+      max-width:900px;
       margin:0 auto;
-      background:transparent;
     }
-    .gallery-item {
-      background:#222;
-      border-radius:10px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.18);
-      padding:0.7rem;
-      margin-bottom:1.6rem;
-      max-width:340px;
-      width:94vw;
+    .gallery-thumb{
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.10);
+      padding:0.6rem;
+      width:180px;
+      height:150px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:transform 0.11s;
+      position:relative;
+    }
+    .gallery-thumb:hover{
+      transform:scale(1.07);
+      box-shadow:0 12px 28px rgba(0,0,0,0.12);
+    }
+    .gallery-thumb img{
+      max-width:160px;
+      max-height:120px;
+      border-radius:9px;
+      object-fit:cover;
+    }
+    .gallery-label{
+      position:absolute;
+      left:0; right:0; bottom:4px;
+      text-align:center;
+      font-size:0.92rem;
+      color:var(--primary);
+      font-weight:700;
+      text-shadow:0 2px 10px #fff, 0 1px 10px #fff;
+      background:rgba(255,255,255,0.7);
+      border-radius:0 0 8px 8px;
+      padding:0.1rem 0;
+    }
+    /* Modal styles */
+    .modal-bg{
+      display:none;
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      width:100vw; height:100vh;
+      background:rgba(0,0,0,0.82);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+    }
+    .modal-bg.active{
+      display:flex;
+    }
+    .modal-content{
+      background:#fff;
+      border-radius:16px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.30);
+      padding:2.2rem 2.2rem 1.8rem 2.2rem;
+      max-width:540px;
+      width:90vw;
       display:flex;
       flex-direction:column;
       align-items:center;
-      justify-content:center;
-    }
-    .gallery-item img {
-      width:100%;
-      max-width:320px;
-      border-radius:8px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.18);
-      background:#222;
-      margin-bottom:0.6rem;
-      height:auto;
-      object-fit:contain;
-    }
-    .gallery-label {
-      color:#fff;
-      font-size:1.05rem;
-      font-weight:600;
-      letter-spacing:0.04em;
+      position:relative;
       text-align:center;
-      margin-bottom:0.5rem;
-      margin-top:0;
     }
-    .small-logo{
-      width:100px;
-      margin-top:2.5rem;
-      margin-bottom:0;
-      padding:7px;
-      background:#fff;
+    .modal-img{
+      width:100%;
+      max-width:420px;
+      height:auto;
       border-radius:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+      margin-bottom:1.3rem;
+      object-fit:contain;
+      box-shadow:0 6px 24px rgba(0,0,0,0.12);
+      background:#fafafa;
+    }
+    .modal-label{
+      font-size:1.22rem;
+      color:var(--primary);
+      font-weight:700;
+      margin-bottom:1.2rem;
+    }
+    .modal-back-btn{
+      display:inline-block;
+      margin-top:1.1rem;
+      padding:0.7rem 2.1rem;
+      font-size:1.1rem;
+      font-weight:800;
+      background:var(--primary);
+      color:#fff;
+      border-radius:10px;
+      text-decoration:none;
+      border:none;
+      box-shadow:0 4px 12px rgba(0,0,0,0.11);
+      cursor:pointer;
+      transition:background 0.13s;
+    }
+    .modal-back-btn:hover, .modal-back-btn:focus{
+      background:var(--secondary);
+      color:var(--primary);
     }
     footer{
       text-align:center;
-      color:#bbb;
-      padding:2rem 0 3rem;
-      font-size:0.98rem;
-      background:transparent;
+      padding:2.2rem 0 2.5rem 0;
+      font-size:1.12rem;
+      background:var(--btn-bg);
+      color:var(--primary);
+      margin-top:4rem;
     }
-    @media (max-width:1200px){
-      header{flex-direction:column; align-items:center;}
-      .header-content{flex-direction:column; align-items:center;}
-      .directory-wrap{ margin-left:0; margin-right:0;}
-      .rsvp-wrap{ align-items:center; text-align:center; margin-left:0; margin-right:0;}
-      .rsvp-title{ text-align:center;}
-      .gallery{gap:1rem;}
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:1.1rem;
+      justify-content:center;
+      align-items:center;
+      margin:2rem auto 0 auto;
+      width:100%;
+      max-width:750px;
     }
-    @media (max-width:900px){
-      .header-content{flex-direction:column; align-items:center;}
-      .directory-wrap{ grid-template-columns:1fr; grid-template-rows:repeat(10,1fr);}
-      .club-btn{ font-size:0.97rem; min-width:110px;}
-      .rsvp-btn{ font-size:1.15rem; padding:0.9rem 1.7rem;}
-      .rsvp-title{ font-size:1rem;}
-      .logo-img{ width:70px; height:70px;}
-      .main-title{ font-size:1.05rem;}
-      .left-block{min-width:170px; max-width:260px;}
-      .rsvp-wrap{min-width:170px; max-width:340px;}
+    .footer-link-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:0.6em;
+      background:var(--btn-bg);
+      color:var(--btn-color);
+      padding:0.7rem 1.3rem;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:1.1rem;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+      border:2px solid var(--btn-border);
+      transition:background 0.18s, color 0.18s;
+      outline:none;
+      cursor:pointer;
+      margin-bottom:0.3rem;
+    }
+    .footer-link-btn:hover, .footer-link-btn:focus{
+      background:var(--btn-color);
+      color:#fff;
+      border-color:var(--btn-bg);
+    }
+    .footer-link-btn img, .footer-link-btn .material-icons{
+      width:1.3em;
+      height:1.3em;
+      vertical-align:middle;
+      margin-right:0.3em;
+      filter: grayscale(10%) contrast(110%);
     }
     @media (max-width:600px){
-      .header-content{flex-direction:column;}
-      .directory-wrap{ grid-template-columns:1fr; grid-template-rows:repeat(10,1fr);}
-      .rsvp-btn{ font-size:1rem; padding:0.7rem 1.1rem;}
-      .logo-img{ width:48px; height:48px;}
-      .main-title{ font-size:0.7rem;}
-      .left-block,.rsvp-wrap{ min-width:0; max-width:100vw;}
-      .gallery{gap:0.5rem;}
-      .gallery-item{padding:0.3rem;}
-      .gallery-label{font-size:0.93rem;}
+      .main-title{font-size:1.3rem;}
+      .hero-logo{width:96px;}
+      .gallery-grid{gap:0.7rem;}
+      .gallery-thumb{width:120px;height:90px;}
+      .gallery-thumb img{max-width:98px;max-height:70px;}
+      .modal-content{padding:1.2rem;}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <div class="left-block">
-        <img src="logo.jpg" alt="Denton Car Club logo" class="logo-img" />
-        <div class="main-title">DENTON CAR CLUB</div>
-      </div>
-      <nav class="directory-wrap" aria-label="Club Links">
-        <a class="club-btn" href="mailto:dentoncarclub@gmail.com" aria-label="Email Denton Car Club">
-          <span class="material-icons" style="color:#c0392b;">mail</span>
-          Get in touch
-        </a>
-        <a class="club-btn" href="https://app.parkupfront.com/club/4676" target="_blank" rel="noopener" aria-label="ParkUpFront Club">
-          <img src="https://parkupfront.com/favicon.ico" alt="ParkUpFront logo" />
-          ParkUpFront
-        </a>
-        <a class="club-btn" href="https://www.instagram.com/denton.carclub?igsh=MTcyb3l6dnVsYW1vdg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram logo" />
-          Instagram
-        </a>
-        <a class="club-btn" href="https://www.facebook.com/share/171ygkxmui/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Facebook-icon-1.png" alt="Facebook logo" />
-          Facebook
-        </a>
-        <a class="club-btn" href="https://share.google/SM264MQ6NB8pDk6L6" target="_blank" rel="noopener" aria-label="Google Business Profile">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo" />
-          Tell us how it went!
-        </a>
-        <a class="club-btn" href="https://www.eventbrite.com/e/1759341901989?aff=oddtdtcreator" target="_blank" rel="noopener" aria-label="Eventbrite">
-          <img src="https://cdn.worldvectorlogo.com/logos/eventbrite-1.svg" alt="Eventbrite logo" />
-          Eventbrite
-        </a>
-        <a class="club-btn" href="https://carcruisefinder.com/car-show/cars-cones/" target="_blank" rel="noopener" aria-label="Cars & Cones">
-          <img src="https://carcruisefinder.com/wp-content/themes/carcruisefinder/assets/img/apple-touch-icon.png" alt="Cars & Cones logo" />
-          Cars & Cones
-        </a>
-        <a class="club-btn" href="https://allevents.in/denton/80004843665138?aff_id=ue48iw&ref=sharer" target="_blank" rel="noopener" aria-label="AllEvents">
-          <img src="https://allevents.in/assets/images/favicon/apple-icon-120x120.png" alt="AllEvents logo" />
-          AllEvents
-        </a>
-        <a class="club-btn" href="https://carstoshow.com/EventDetails.aspx?eventid=121709" target="_blank" rel="noopener" aria-label="CarsToShow">
-          <img src="https://carstoshow.com/images/logo.png" alt="CarsToShow logo" />
-          CarsToShow
-        </a>
-      </nav>
-      <div class="rsvp-wrap">
-        <div class="rsvp-title">RSVP for our next event and reserve your spot!</div>
-        <a class="rsvp-btn" href="http://bit.ly/485oqSx" target="_blank" rel="noopener" aria-label="RSVP">
-          RSVP
-        </a>
-      </div>
-    </div>
-  </header>
+  <!-- HERO LOGO TOP CENTER -->
+  <div class="hero">
+    <img src="logo.jpg" alt="Denton Car Club logo" class="hero-logo" />
+    <div class="main-title">DENTON CAR CLUB</div>
+    <div class="tagline">DCC — United by Passion, Driven by Community</div>
+  </div>
 
-  <main class="container">
-    <!-- Responsive Gallery -->
-    <div class="gallery">
-      <div class="gallery-item">
-        <img src="rules.png" alt="Denton Car Club rules poster" />
+  <!-- GALLERY SECTION -->
+  <section class="gallery-section" id="gallery">
+    <div class="gallery-title">Gallery</div>
+    <div class="gallery-grid">
+      <div class="gallery-thumb" onclick="openModal(0)">
+        <img src="rules.png" alt="Meet Rules" />
         <div class="gallery-label">Meet Rules</div>
       </div>
-      <div class="gallery-item">
-        <img src="liability%20disclaimer.jpg" alt="Denton Car Club liability visual" />
+      <div class="gallery-thumb" onclick="openModal(1)">
+        <img src="liability%20disclaimer.jpg" alt="Liability Disclaimer" />
         <div class="gallery-label">Liability Disclaimer</div>
       </div>
-      <div class="gallery-item">
-        <img src="logo.jpg" alt="DCC small logo" />
+      <div class="gallery-thumb" onclick="openModal(2)">
+        <img src="logo.jpg" alt="Club Logo" />
         <div class="gallery-label">Club Logo</div>
       </div>
     </div>
-  </main>
+  </section>
 
+  <!-- MODAL for image preview -->
+  <div class="modal-bg" id="modal">
+    <div class="modal-content">
+      <img src="" id="modal-img" alt="" class="modal-img" />
+      <div class="modal-label" id="modal-label"></div>
+      <button class="modal-back-btn" onclick="closeModal()">Back to Homepage</button>
+    </div>
+  </div>
+
+  <!-- FOOTER LINKS -->
   <footer>
-    &copy; 2025 Denton Car Club — Denton, TX
+    <div class="footer-links">
+      <a class="footer-link-btn" href="mailto:dentoncarclub@gmail.com" aria-label="Email Denton Car Club">
+        <span class="material-icons" style="color:#c0392b;">mail</span>
+        Get in touch
+      </a>
+      <a class="footer-link-btn" href="https://app.parkupfront.com/club/4676" target="_blank" rel="noopener" aria-label="ParkUpFront Club">
+        <img src="https://parkupfront.com/favicon.ico" alt="ParkUpFront logo" />
+        ParkUpFront
+      </a>
+      <a class="footer-link-btn" href="https://www.instagram.com/denton.carclub?igsh=MTcyb3l6dnVsYW1vdg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram logo" />
+        Instagram
+      </a>
+      <a class="footer-link-btn" href="https://www.facebook.com/share/171ygkxmui/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Facebook-icon-1.png" alt="Facebook logo" />
+        Facebook
+      </a>
+      <a class="footer-link-btn" href="https://share.google/SM264MQ6NB8pDk6L6" target="_blank" rel="noopener" aria-label="Google Business Profile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo" />
+        Tell us how it went!
+      </a>
+      <a class="footer-link-btn" href="https://www.eventbrite.com/e/1759341901989?aff=oddtdtcreator" target="_blank" rel="noopener" aria-label="Eventbrite">
+        <img src="https://cdn.worldvectorlogo.com/logos/eventbrite-1.svg" alt="Eventbrite logo" />
+        Eventbrite
+      </a>
+      <a class="footer-link-btn" href="https://carcruisefinder.com/car-show/cars-cones/" target="_blank" rel="noopener" aria-label="Cars & Cones">
+        <img src="https://carcruisefinder.com/wp-content/themes/carcruisefinder/assets/img/apple-touch-icon.png" alt="Cars & Cones logo" />
+        Cars & Cones
+      </a>
+      <a class="footer-link-btn" href="https://allevents.in/denton/80004843665138?aff_id=ue48iw&ref=sharer" target="_blank" rel="noopener" aria-label="AllEvents">
+        <img src="https://allevents.in/assets/images/favicon/apple-icon-120x120.png" alt="AllEvents logo" />
+        AllEvents
+      </a>
+      <a class="footer-link-btn" href="https://carstoshow.com/EventDetails.aspx?eventid=121709" target="_blank" rel="noopener" aria-label="CarsToShow">
+        <img src="https://carstoshow.com/images/logo.png" alt="CarsToShow logo" />
+        CarsToShow
+      </a>
+    </div>
+    <div style="margin-top:2.2rem;">
+      &copy; 2025 Denton Car Club — Denton, TX
+    </div>
   </footer>
+
+  <script>
+    // Gallery modal logic
+    const galleryImages = [
+      {
+        src: "rules.png",
+        label: "Meet Rules"
+      },
+      {
+        src: "liability%20disclaimer.jpg",
+        label: "Liability Disclaimer"
+      },
+      {
+        src: "logo.jpg",
+        label: "Club Logo"
+      }
+    ];
+    function openModal(idx){
+      document.getElementById('modal-img').src = galleryImages[idx].src;
+      document.getElementById('modal-img').alt = galleryImages[idx].label;
+      document.getElementById('modal-label').textContent = galleryImages[idx].label;
+      document.getElementById('modal').classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+    function closeModal(){
+      document.getElementById('modal').classList.remove('active');
+    }
+    // Optional: close modal with ESC
+    document.addEventListener('keydown', function(e){
+      if(e.key === "Escape") closeModal();
+    });
+  </script>
 </body>
 </html>
