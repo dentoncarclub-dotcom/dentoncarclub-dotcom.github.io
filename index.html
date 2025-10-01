@@ -25,38 +25,56 @@
     header{
       background:var(--primary);
       color:#fff;
-      text-align:center;
-      padding:2rem 1rem 1.75rem;
+      padding:2rem 1rem 2rem 1rem;
       border-bottom:6px solid var(--accent);
+      display:flex;
+      flex-direction:row;
+      align-items:flex-start;
+      justify-content:flex-start;
+      position:relative;
+    }
+    .logo-block{
+      flex:0 0 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      margin-right:2.8rem;
+      margin-bottom:0;
     }
     .hero-img{
-      width:360px;
-      max-width:92%;
+      width:120px;
+      height:auto;
       display:block;
-      margin:0 auto 0.8rem;
+      margin-bottom:0.7rem;
       border-radius:10px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.45);
     }
     .main-title{
       font-weight:900;
       letter-spacing:3px;
-      font-size:2.6rem;
-      margin:0.35rem 0 0;
+      font-size:2.2rem;
+      margin:0 0 0.3rem 0;
       text-shadow: 2px 6px 18px rgba(0,0,0,0.6);
+      text-align:center;
+      line-height:1.1;
     }
     .tagline{
       color:var(--accent);
       font-weight:700;
-      margin-top:.5rem;
+      margin-top:.15rem;
       letter-spacing:1.5px;
-      font-size:1.05rem;
+      font-size:1rem;
+      text-align:center;
     }
-    .contact-wrap{
-      margin-top:1.2rem;
+    .directory-wrap{
+      flex:0 0 300px;
       display:flex;
-      flex-wrap:wrap;
+      flex-direction:column;
+      align-items:flex-start;
       justify-content:center;
       gap:1rem;
+      margin-top:0.5rem;
     }
     .club-btn{
       display:inline-flex;
@@ -93,6 +111,58 @@
       vertical-align:middle;
       margin-right:0.4em;
       filter: grayscale(10%) contrast(100%);
+    }
+    .header-content{
+      flex:1 1 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      min-width:180px;
+      margin-top:0.3rem;
+    }
+    .rsvp-wrap{
+      flex:0 0 370px;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      justify-content:center;
+      margin-top:0.3rem;
+      margin-left:auto;
+      min-width:270px;
+    }
+    .rsvp-title{
+      color:#fff;
+      font-weight:900;
+      font-size:1.32rem;
+      margin-bottom:1.1rem;
+      letter-spacing:0.05em;
+      text-align:right;
+      text-shadow: 2px 6px 18px rgba(0,0,0,0.2);
+    }
+    .rsvp-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:1.1rem 2.8rem;
+      font-size:1.4rem;
+      font-weight:900;
+      background:var(--accent);
+      color:#fff;
+      border-radius:12px;
+      text-decoration:none;
+      border:2px solid #fff;
+      box-shadow:0 6px 18px rgba(0,0,0,0.14);
+      letter-spacing:1.5px;
+      transition:background 0.18s, color 0.18s;
+      outline:none;
+      cursor:pointer;
+      margin-bottom:0.8rem;
+    }
+    .rsvp-btn:hover, .rsvp-btn:focus{
+      background:#fff;
+      color:var(--accent);
+      border-color:var(--accent);
     }
     .container{
       max-width:980px;
@@ -132,44 +202,60 @@
       font-size:0.98rem;
       background:transparent;
     }
+    @media (max-width:1100px){
+      header{ flex-wrap:wrap; flex-direction:column; align-items:center; justify-content:center;}
+      .logo-block,.directory-wrap,.header-content,.rsvp-wrap{ margin-left:0; margin-right:0; min-width:0;}
+      .directory-wrap, .rsvp-wrap{ align-items:center; min-width:0;}
+      .rsvp-title{ text-align:center;}
+      .rsvp-btn{ font-size:1.1rem; padding:1rem 2rem;}
+    }
     @media (max-width:700px){
-      .main-title{ font-size:1.8rem; }
-      .hero-img{ width:86%; }
+      .main-title{ font-size:1.2rem; }
+      .hero-img{ width:80px; }
       .card{ padding:1.1rem; }
       .rules-poster{ width:98%; }
-      .club-btn{ font-size:0.96rem; padding:0.5rem 0.9rem; min-width:90px;}
-      .contact-wrap{ gap:0.6rem;}
+      .club-btn{ font-size:0.96rem; padding:0.5rem 0.8rem; min-width:90px;}
+      .directory-wrap{ gap:0.5rem;}
+      .rsvp-btn{ font-size:1rem; padding:0.7rem 1rem;}
+      .rsvp-title{ font-size:1rem;}
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.jpg" alt="Denton Car Club hero" class="hero-img" />
-    <div class="main-title">DENTON CAR CLUB</div>
-    <div class="tagline">DCC — United by Passion, Driven by Community</div>
-    <div class="contact-wrap">
-      <!-- Gmail button -->
+    <!-- Logo left, vertical centered -->
+    <div class="logo-block">
+      <img src="logo.jpg" alt="Denton Car Club hero" class="hero-img" />
+      <div class="main-title">DENTON CAR CLUB</div>
+      <div class="tagline">DCC — United by Passion, Driven by Community</div>
+    </div>
+    <!-- Directory (links) left of center -->
+    <nav class="directory-wrap" aria-label="Club Links">
       <a class="club-btn" href="mailto:dentoncarclub@gmail.com" aria-label="Email Denton Car Club">
         <span class="material-icons" style="color:#c0392b;">mail</span>
         Get in touch
       </a>
-      <!-- ParkUpFront -->
       <a class="club-btn" href="https://app.parkupfront.com/club/4676" target="_blank" rel="noopener" aria-label="ParkUpFront Club">
         <img src="https://parkupfront.com/favicon.ico" alt="ParkUpFront logo" />
         ParkUpFront
       </a>
-      <!-- Instagram -->
       <a class="club-btn" href="https://www.instagram.com/denton.carclub?igsh=MTcyb3l6dnVsYW1vdg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram logo" />
         Instagram
       </a>
-      <!-- Facebook -->
       <a class="club-btn" href="https://www.facebook.com/share/171ygkxmui/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Facebook-icon-1.png" alt="Facebook logo" />
         Facebook
       </a>
-      <!-- RSVP button -->
-      <a class="club-btn" href="http://bit.ly/485oqSx" target="_blank" rel="noopener" aria-label="RSVP">
+      <a class="club-btn" href="https://share.google/SM264MQ6NB8pDk6L6" target="_blank" rel="noopener" aria-label="Google Business Profile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo" />
+        Tell us how it went!
+      </a>
+    </nav>
+    <!-- RSVP right -->
+    <div class="rsvp-wrap">
+      <div class="rsvp-title">RSVP for our next event and reserve your spot!</div>
+      <a class="rsvp-btn" href="http://bit.ly/485oqSx" target="_blank" rel="noopener" aria-label="RSVP">
         RSVP
       </a>
     </div>
