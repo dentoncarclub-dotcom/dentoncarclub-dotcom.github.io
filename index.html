@@ -108,7 +108,7 @@
       justify-items:center;
       align-items:center;
       width:100%;
-      max-width:900px;
+      max-width:950px;
       margin:0 auto;
     }
     .gallery-thumb{
@@ -273,13 +273,6 @@
       color:#fff;
       border-color:var(--btn-bg);
     }
-    .footer-link-btn img, .footer-link-btn .material-icons{
-      width:1.3em;
-      height:1.3em;
-      vertical-align:middle;
-      margin-right:0.3em;
-      filter: grayscale(10%) contrast(110%);
-    }
     @media (max-width:950px){
       .gallery-grid{grid-template-columns:repeat(2,1fr);}
     }
@@ -328,39 +321,30 @@
   <footer>
     <div class="footer-links">
       <a class="footer-link-btn" href="mailto:dentoncarclub@gmail.com" aria-label="Email Denton Car Club">
-        <span class="material-icons" style="color:#c0392b;">mail</span>
         Get in touch
       </a>
       <a class="footer-link-btn" href="https://app.parkupfront.com/club/4676" target="_blank" rel="noopener" aria-label="ParkUpFront Club">
-        <img src="https://parkupfront.com/favicon.ico" alt="ParkUpFront logo" />
         ParkUpFront
       </a>
       <a class="footer-link-btn" href="https://www.instagram.com/denton.carclub?igsh=MTcyb3l6dnVsYW1vdg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram logo" />
         Instagram
       </a>
       <a class="footer-link-btn" href="https://www.facebook.com/share/171ygkxmui/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Facebook-icon-1.png" alt="Facebook logo" />
         Facebook
       </a>
       <a class="footer-link-btn" href="https://share.google/SM264MQ6NB8pDk6L6" target="_blank" rel="noopener" aria-label="Google Business Profile">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo" />
         Tell us how it went!
       </a>
       <a class="footer-link-btn" href="https://www.eventbrite.com/e/1759341901989?aff=oddtdtcreator" target="_blank" rel="noopener" aria-label="Eventbrite">
-        <img src="https://cdn.worldvectorlogo.com/logos/eventbrite-1.svg" alt="Eventbrite logo" />
         Eventbrite
       </a>
       <a class="footer-link-btn" href="https://carcruisefinder.com/car-show/cars-cones/" target="_blank" rel="noopener" aria-label="Car Cruise Finder">
-        <img src="https://carcruisefinder.com/wp-content/themes/carcruisefinder/assets/img/apple-touch-icon.png" alt="Car Cruise Finder logo" />
         Car Cruise Finder
       </a>
       <a class="footer-link-btn" href="https://allevents.in/denton/80004843665138?aff_id=ue48iw&ref=sharer" target="_blank" rel="noopener" aria-label="AllEvents">
-        <img src="https://allevents.in/assets/images/favicon/apple-icon-120x120.png" alt="AllEvents logo" />
         AllEvents
       </a>
       <a class="footer-link-btn" href="https://carstoshow.com/EventDetails.aspx?eventid=121709" target="_blank" rel="noopener" aria-label="CarsToShow">
-        <img src="https://carstoshow.com/images/logo.png" alt="CarsToShow logo" />
         CarsToShow
       </a>
     </div>
@@ -370,21 +354,19 @@
   </footer>
 
   <script>
-    // Gallery images: automatically include all images in repo root with valid extensions
-    const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-    async function fetchImagesFromRepo() {
-      // GitHub Pages doesn't allow directory listing, but you can hardcode or use API for dynamic listing if hosted elsewhere.
-      // Here, we use a hardcoded list for demo; update this to add/remove images.
-      // If you want true auto-discovery, you need server-side logic or GitHub API with authentication.
-      const images = [
-        "rules.png",
-        "liability%20disclaimer.jpg",
-        "logo.jpg"
-        // Add other image filenames here
-      ];
-      // Optionally, filter by extension
-      return images.filter(fn => imageExtensions.some(ext => fn.toLowerCase().endsWith(ext)));
-    }
+    // Gallery images: list all images in repo root with valid extensions
+    const galleryImages = [
+      "IMG_1583.jpeg",
+      "IMG_1591.jpeg",
+      "IMG_1603.jpeg",
+      "ITC Benguiat Condensed (2).png",
+      "PROMO1.jpg",
+      "PROMO2.jpg",
+      "Your paragraph text.png",
+      "logo.jpg",
+      "rules.png",
+      "liability disclaimer.jpg"
+    ];
     function showGallery(){
       document.getElementById('gallery').classList.add('active');
       window.scrollTo({top:document.getElementById('gallery').offsetTop, behavior:'smooth'});
@@ -394,22 +376,20 @@
       document.getElementById('gallery').classList.remove('active');
     }
     function generateGallery(){
-      fetchImagesFromRepo().then(images => {
-        const grid = document.getElementById('gallery-grid');
-        grid.innerHTML = "";
-        images.forEach((src, idx)=>{
-          const label = src.replace(/[-_]/g, ' ').replace(/\.(jpg|jpeg|png|gif|webp)$/i,'').replace(/%20/g,' ');
-          const div = document.createElement('div');
-          div.className = "gallery-thumb";
-          div.onclick = function(){ openModal(src, label); };
-          div.innerHTML = `<img src="${src}" alt="${label}" /><div class="gallery-label">${label}</div>`;
-          grid.appendChild(div);
-        });
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = "";
+      galleryImages.forEach((src, idx)=>{
+        const label = src.replace(/[-_]/g, ' ').replace(/\.(jpg|jpeg|png|gif|webp)$/i,'').replace(/%20/g,' ');
+        const div = document.createElement('div');
+        div.className = "gallery-thumb";
+        div.onclick = function(){ openModal(src, label); };
+        div.innerHTML = `<img src="${encodeURI(src)}" alt="${label}" /><div class="gallery-label">${label}</div>`;
+        grid.appendChild(div);
       });
     }
     // Modal logic
     function openModal(src, label){
-      document.getElementById('modal-img').src = src;
+      document.getElementById('modal-img').src = encodeURI(src);
       document.getElementById('modal-img').alt = label;
       document.getElementById('modal-label').textContent = label;
       document.getElementById('modal').classList.add('active');
