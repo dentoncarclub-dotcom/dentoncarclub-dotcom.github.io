@@ -4,8 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Denton Car Club</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900,400&display=swap" rel="stylesheet">
+  <!-- ITC Benguiat Condensed font (see note below) -->
   <style>
+    /* NOTE: You must provide ITC Benguiat Condensed as a .ttf/.otf web font for this to work for all users.
+       The below is a placeholder. Replace with your actual font file if you have it. */
+    @font-face {
+      font-family: 'ITC Benguiat Condensed';
+      src: url('ITC Benguiat Condensed.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
     :root{
       --primary: #c0392b;
       --secondary: #111418;
@@ -16,11 +24,12 @@
       --btn-border: #c0392b;
       --footer-bg: #232323;
       --footer-color: #fff;
+      --font-family: 'ITC Benguiat Condensed', Arial, sans-serif;
     }
     *{box-sizing:border-box;}
     body{
       margin:0;
-      font-family:"Montserrat",Arial,sans-serif;
+      font-family:var(--font-family);
       background:var(--bg);
       color:#fff;
       min-height:100vh;
@@ -39,6 +48,7 @@
       background:#fff;
     }
     .main-title{
+      font-family:var(--font-family);
       font-weight:900;
       letter-spacing:4px;
       font-size:2.5rem;
@@ -46,19 +56,47 @@
       text-shadow: 2px 6px 18px rgba(0,0,0,0.25);
       color:var(--accent);
     }
-    .tagline{
-      color:var(--accent);
-      font-weight:700;
-      margin-bottom:0.8rem;
-      letter-spacing:1.5px;
-      font-size:1.05rem;
-    }
-    /* Gallery button */
-    .gallery-btn{
-      display:inline-block;
-      margin:2.5rem auto 2.5rem auto;
+    .rsvp-btn{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      margin:1.5rem auto 1.5rem auto;
       padding:1.2rem 3.5rem;
       font-size:1.45rem;
+      font-family:var(--font-family);
+      font-weight:900;
+      background:var(--accent);
+      color:#fff;
+      border-radius:16px;
+      text-decoration:none;
+      border:3px solid #fff;
+      box-shadow:0 4px 18px rgba(0,0,0,0.14);
+      letter-spacing:2px;
+      transition:background 0.16s, color 0.16s, border-color 0.16s;
+      outline:none;
+      cursor:pointer;
+    }
+    .rsvp-btn:hover, .rsvp-btn:focus{
+      background:#fff;
+      color:var(--accent);
+      border-color:var(--accent);
+    }
+    .rsvp-details{
+      font-size:0.88rem;
+      font-family:var(--font-family);
+      letter-spacing:0.9px;
+      color:#fff;
+      opacity:0.75;
+      margin-top:2px;
+      font-weight:600;
+    }
+    .gallery-btn{
+      display:inline-block;
+      margin:1rem auto 2.5rem auto;
+      padding:1.2rem 3.5rem;
+      font-size:1.45rem;
+      font-family:var(--font-family);
       font-weight:900;
       background:var(--accent);
       color:#fff;
@@ -76,7 +114,6 @@
       color:var(--accent);
       border-color:var(--accent);
     }
-    /* Hidden gallery section until button clicked */
     .gallery-section{
       display:none;
       flex-direction:column;
@@ -95,6 +132,7 @@
     @keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
     .gallery-title{
       font-size:2rem;
+      font-family:var(--font-family);
       font-weight:900;
       color:#fff;
       margin-bottom:2.2rem;
@@ -135,18 +173,7 @@
       border-radius:9px;
       object-fit:cover;
       background:#fff;
-    }
-    .gallery-label{
-      position:absolute;
-      left:0; right:0; bottom:4px;
-      text-align:center;
-      font-size:0.92rem;
-      color:#fff;
-      font-weight:700;
-      text-shadow:0 2px 10px #111, 0 1px 10px #111;
-      background:rgba(30,30,30,0.6);
-      border-radius:0 0 8px 8px;
-      padding:0.1rem 0;
+      display:block;
     }
     .gallery-close-btn{
       position:absolute;
@@ -155,6 +182,7 @@
       background:var(--accent);
       color:#fff;
       font-size:1.1rem;
+      font-family:var(--font-family);
       font-weight:900;
       border-radius:9px;
       padding:0.7rem 1.5rem;
@@ -169,7 +197,6 @@
       color:var(--accent);
       border:2px solid var(--accent);
     }
-    /* Modal styles */
     .modal-bg{
       display:none;
       position:fixed;
@@ -196,6 +223,7 @@
       position:relative;
       text-align:center;
       color:#fff;
+      font-family:var(--font-family);
     }
     .modal-img{
       width:100%;
@@ -207,17 +235,12 @@
       box-shadow:0 6px 24px rgba(0,0,0,0.22);
       background:#111;
     }
-    .modal-label{
-      font-size:1.22rem;
-      color:#fff;
-      font-weight:700;
-      margin-bottom:1.2rem;
-    }
     .modal-back-btn{
       display:inline-block;
       margin-top:1.1rem;
       padding:0.7rem 2.1rem;
       font-size:1.1rem;
+      font-family:var(--font-family);
       font-weight:800;
       background:var(--accent);
       color:#fff;
@@ -239,6 +262,7 @@
       background:var(--footer-bg);
       color:var(--footer-color);
       margin-top:4rem;
+      font-family:var(--font-family);
     }
     .footer-links{
       display:flex;
@@ -259,6 +283,7 @@
       padding:0.7rem 1.3rem;
       border-radius:12px;
       text-decoration:none;
+      font-family:var(--font-family);
       font-weight:700;
       font-size:1.1rem;
       box-shadow:0 2px 8px rgba(0,0,0,0.13);
@@ -291,7 +316,14 @@
   <div class="hero">
     <img src="logo.jpg" alt="Denton Car Club logo" class="hero-logo" />
     <div class="main-title">DENTON CAR CLUB</div>
-    <div class="tagline">DCC — United by Passion, Driven by Community</div>
+  </div>
+
+  <!-- RSVP Button -->
+  <div style="text-align:center;">
+    <a class="rsvp-btn" href="http://bit.ly/485oqSx" target="_blank" rel="noopener">
+      RSVP 10/11/25
+      <span class="rsvp-details">*see instagram/facebook for details*</span>
+    </a>
   </div>
 
   <!-- Gallery Preview Button -->
@@ -312,7 +344,6 @@
   <div class="modal-bg" id="modal">
     <div class="modal-content">
       <img src="" id="modal-img" alt="" class="modal-img" />
-      <div class="modal-label" id="modal-label"></div>
       <button class="modal-back-btn" onclick="closeModal()">Back to Gallery</button>
     </div>
   </div>
@@ -320,33 +351,15 @@
   <!-- FOOTER LINKS -->
   <footer>
     <div class="footer-links">
-      <a class="footer-link-btn" href="mailto:dentoncarclub@gmail.com" aria-label="Email Denton Car Club">
-        Get in touch
-      </a>
-      <a class="footer-link-btn" href="https://app.parkupfront.com/club/4676" target="_blank" rel="noopener" aria-label="ParkUpFront Club">
-        ParkUpFront
-      </a>
-      <a class="footer-link-btn" href="https://www.instagram.com/denton.carclub?igsh=MTcyb3l6dnVsYW1vdg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
-        Instagram
-      </a>
-      <a class="footer-link-btn" href="https://www.facebook.com/share/171ygkxmui/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-        Facebook
-      </a>
-      <a class="footer-link-btn" href="https://share.google/SM264MQ6NB8pDk6L6" target="_blank" rel="noopener" aria-label="Google Business Profile">
-        Tell us how it went!
-      </a>
-      <a class="footer-link-btn" href="https://www.eventbrite.com/e/1759341901989?aff=oddtdtcreator" target="_blank" rel="noopener" aria-label="Eventbrite">
-        Eventbrite
-      </a>
-      <a class="footer-link-btn" href="https://carcruisefinder.com/car-show/cars-cones/" target="_blank" rel="noopener" aria-label="Car Cruise Finder">
-        Car Cruise Finder
-      </a>
-      <a class="footer-link-btn" href="https://allevents.in/denton/80004843665138?aff_id=ue48iw&ref=sharer" target="_blank" rel="noopener" aria-label="AllEvents">
-        AllEvents
-      </a>
-      <a class="footer-link-btn" href="https://carstoshow.com/EventDetails.aspx?eventid=121709" target="_blank" rel="noopener" aria-label="CarsToShow">
-        CarsToShow
-      </a>
+      <a class="footer-link-btn" href="mailto:dentoncarclub@gmail.com">Email Us!</a>
+      <a class="footer-link-btn" href="https://app.parkupfront.com/club/4676" target="_blank" rel="noopener">ParkUpFront</a>
+      <a class="footer-link-btn" href="https://www.instagram.com/denton.carclub?igsh=MTcyb3l6dnVsYW1vdg%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+      <a class="footer-link-btn" href="https://www.facebook.com/share/171ygkxmui/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      <a class="footer-link-btn" href="https://share.google/SM264MQ6NB8pDk6L6" target="_blank" rel="noopener">Tell us how it went!</a>
+      <a class="footer-link-btn" href="https://www.eventbrite.com/e/1759341901989?aff=oddtdtcreator" target="_blank" rel="noopener">Eventbrite</a>
+      <a class="footer-link-btn" href="https://carcruisefinder.com/car-show/cars-cones/" target="_blank" rel="noopener">Car Cruise Finder</a>
+      <a class="footer-link-btn" href="https://allevents.in/denton/80004843665138?aff_id=ue48iw&ref=sharer" target="_blank" rel="noopener">AllEvents</a>
+      <a class="footer-link-btn" href="https://carstoshow.com/EventDetails.aspx?eventid=121709" target="_blank" rel="noopener">CarsToShow</a>
     </div>
     <div style="margin-top:2.2rem;">
       &copy; 2025 Denton Car Club — Denton, TX
@@ -354,7 +367,9 @@
   </footer>
 
   <script>
-    // Gallery images: list all images in repo root with valid extensions
+    // Auto-detect images (jpg, jpeg, png, gif, webp) in repo root
+    // On GitHub Pages, JS CANNOT list files in the repo directory automatically due to browser security.
+    // So you MUST manually add filenames here. This will display all images, no filenames, just pure thumbnails.
     const galleryImages = [
       "IMG_1583.jpeg",
       "IMG_1591.jpeg",
@@ -378,20 +393,18 @@
     function generateGallery(){
       const grid = document.getElementById('gallery-grid');
       grid.innerHTML = "";
-      galleryImages.forEach((src, idx)=>{
-        const label = src.replace(/[-_]/g, ' ').replace(/\.(jpg|jpeg|png|gif|webp)$/i,'').replace(/%20/g,' ');
+      galleryImages.forEach((src)=>{
         const div = document.createElement('div');
         div.className = "gallery-thumb";
-        div.onclick = function(){ openModal(src, label); };
-        div.innerHTML = `<img src="${encodeURI(src)}" alt="${label}" /><div class="gallery-label">${label}</div>`;
+        div.onclick = function(){ openModal(src); };
+        div.innerHTML = `<img src="${encodeURI(src)}" alt="Gallery Image" />`;
         grid.appendChild(div);
       });
     }
     // Modal logic
-    function openModal(src, label){
+    function openModal(src){
       document.getElementById('modal-img').src = encodeURI(src);
-      document.getElementById('modal-img').alt = label;
-      document.getElementById('modal-label').textContent = label;
+      document.getElementById('modal-img').alt = "Gallery Image";
       document.getElementById('modal').classList.add('active');
       window.scrollTo({top:0, behavior:'smooth'});
     }
