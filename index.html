@@ -4,10 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Denton Car Club</title>
-  <!-- ITC Benguiat Condensed font (see note below) -->
+  <!-- ITC Benguiat Condensed font (requires .ttf file in repo) -->
   <style>
-    /* NOTE: You must provide ITC Benguiat Condensed as a .ttf/.otf web font for this to work for all users.
-       The below is a placeholder. Replace with your actual font file if you have it. */
     @font-face {
       font-family: 'ITC Benguiat Condensed';
       src: url('ITC Benguiat Condensed.ttf') format('truetype');
@@ -57,62 +55,66 @@
       color:var(--accent);
     }
     .rsvp-btn{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      margin:1.5rem auto 1.5rem auto;
-      padding:1.2rem 3.5rem;
-      font-size:1.45rem;
-      font-family:var(--font-family);
-      font-weight:900;
-      background:var(--accent);
-      color:#fff;
-      border-radius:16px;
-      text-decoration:none;
-      border:3px solid #fff;
-      box-shadow:0 4px 18px rgba(0,0,0,0.14);
-      letter-spacing:2px;
-      transition:background 0.16s, color 0.16s, border-color 0.16s;
-      outline:none;
-      cursor:pointer;
+      display: inline-block;
+      min-width: 380px;
+      max-width: 98vw;
+      padding: 1.2rem 3.5rem;
+      font-size: 1.7rem;
+      font-family: var(--font-family);
+      font-weight: 900;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 16px;
+      text-decoration: none;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.14);
+      letter-spacing: 2px;
+      transition: background 0.16s, color 0.16s, border-color 0.16s;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
+      margin: 1.5rem auto 1.2rem auto;
     }
     .rsvp-btn:hover, .rsvp-btn:focus{
-      background:#fff;
-      color:var(--accent);
-      border-color:var(--accent);
+      background: #fff;
+      color: var(--accent);
+      border-color: var(--accent);
     }
     .rsvp-details{
-      font-size:0.88rem;
-      font-family:var(--font-family);
-      letter-spacing:0.9px;
-      color:#fff;
-      opacity:0.75;
-      margin-top:2px;
-      font-weight:600;
+      font-size: 0.89rem;
+      font-family: var(--font-family);
+      letter-spacing: 0.9px;
+      color: #fff;
+      opacity: 0.75;
+      margin-top: 2px;
+      font-weight: 600;
+      display: block;
     }
     .gallery-btn{
-      display:inline-block;
-      margin:1rem auto 2.5rem auto;
-      padding:1.2rem 3.5rem;
-      font-size:1.45rem;
-      font-family:var(--font-family);
-      font-weight:900;
-      background:var(--accent);
-      color:#fff;
-      border-radius:16px;
-      text-decoration:none;
-      border:3px solid #fff;
-      box-shadow:0 4px 18px rgba(0,0,0,0.14);
-      letter-spacing:2px;
-      transition:background 0.16s, color 0.16s, border-color 0.16s;
-      outline:none;
-      cursor:pointer;
+      display: inline-block;
+      min-width: 190px;
+      max-width: 98vw;
+      margin: 1rem auto 2.5rem auto;
+      padding: 1.2rem 3.5rem;
+      font-size: 1.45rem;
+      font-family: var(--font-family);
+      font-weight: 900;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 16px;
+      text-decoration: none;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.14);
+      letter-spacing: 2px;
+      transition: background 0.16s, color 0.16s, border-color 0.16s;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
     }
     .gallery-btn:hover, .gallery-btn:focus{
-      background:#fff;
-      color:var(--accent);
-      border-color:var(--accent);
+      background: #fff;
+      color: var(--accent);
+      border-color: var(--accent);
     }
     .gallery-section{
       display:none;
@@ -300,6 +302,7 @@
     }
     @media (max-width:950px){
       .gallery-grid{grid-template-columns:repeat(2,1fr);}
+      .rsvp-btn{min-width:220px;}
     }
     @media (max-width:600px){
       .main-title{font-size:1.3rem;}
@@ -308,11 +311,11 @@
       .gallery-thumb{width:120px;height:90px;}
       .gallery-thumb img{max-width:98px;max-height:70px;}
       .modal-content{padding:1.2rem;}
+      .rsvp-btn{min-width:160px;}
     }
   </style>
 </head>
 <body>
-  <!-- HERO LOGO TOP CENTER -->
   <div class="hero">
     <img src="logo.jpg" alt="Denton Car Club logo" class="hero-logo" />
     <div class="main-title">DENTON CAR CLUB</div>
@@ -331,7 +334,6 @@
     <button class="gallery-btn" onclick="showGallery()">Open Gallery</button>
   </div>
 
-  <!-- Gallery section, hidden until button clicked -->
   <section class="gallery-section" id="gallery">
     <button class="gallery-close-btn" onclick="closeGallery()">Close Gallery</button>
     <div class="gallery-title">Gallery</div>
@@ -340,7 +342,6 @@
     </div>
   </section>
 
-  <!-- MODAL for image preview -->
   <div class="modal-bg" id="modal">
     <div class="modal-content">
       <img src="" id="modal-img" alt="" class="modal-img" />
@@ -348,7 +349,6 @@
     </div>
   </div>
 
-  <!-- FOOTER LINKS -->
   <footer>
     <div class="footer-links">
       <a class="footer-link-btn" href="mailto:dentoncarclub@gmail.com">Email Us!</a>
@@ -367,9 +367,7 @@
   </footer>
 
   <script>
-    // Auto-detect images (jpg, jpeg, png, gif, webp) in repo root
-    // On GitHub Pages, JS CANNOT list files in the repo directory automatically due to browser security.
-    // So you MUST manually add filenames here. This will display all images, no filenames, just pure thumbnails.
+    // All images in repo root (update this array as needed)
     const galleryImages = [
       "IMG_1583.jpeg",
       "IMG_1591.jpeg",
@@ -401,7 +399,6 @@
         grid.appendChild(div);
       });
     }
-    // Modal logic
     function openModal(src){
       document.getElementById('modal-img').src = encodeURI(src);
       document.getElementById('modal-img').alt = "Gallery Image";
